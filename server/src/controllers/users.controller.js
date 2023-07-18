@@ -44,11 +44,13 @@ controller.createUser = async (req, res) => {
 
     
     await fs.writeFile(usersFile, JSON.stringify(jsonData));
+
+    res.send({message: 'Todo ok'})
     res.end();
 
    
   } catch (err) {
-    res.send('Error al guardar usuario');
+    res.send({ error: 'Error al guardar usuario'});
   }
 };
 
