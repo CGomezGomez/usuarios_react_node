@@ -44,6 +44,7 @@ controller.createUser = async (req, res) => {
 
     
     await fs.writeFile(usersFile, JSON.stringify(jsonData));
+    res.end();
 
    
   } catch (err) {
