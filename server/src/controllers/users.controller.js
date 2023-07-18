@@ -2,6 +2,7 @@ const controller = {};
 const path = require('path');
 const usersFile = path.resolve(__dirname, '../../data/users.json');
 const fs = require('fs/promises');
+const {v4} = require('uuid');
 
 
 controller.getUsers = async(req , res) => {
@@ -26,7 +27,7 @@ controller.createUser = async (req, res) => {
     const randomNumber = Math.floor(Math.random() * 99) + 1; 
 
     const newUser = {
-      userId: `${randomNumber}-${Date.now()}`,
+      userId: v4(),
       title,
       name,
       age: parseInt(age), 

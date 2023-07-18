@@ -1,3 +1,5 @@
+import Print from "../print/Print";
+
 import { StyledForm } from "./styles";
 
 const createUser = async (userData) => {
@@ -41,7 +43,8 @@ const handleFormSubmit = async (event) => {
 const Form = () => {
 
   return (
-    <StyledForm onSubmit={handleFormSubmit}>
+    <div>
+       <StyledForm onSubmit={handleFormSubmit}>
       <label>Título:</label>
       <input type="text" name="title" />
       <br />
@@ -66,6 +69,9 @@ const Form = () => {
         Crear Usuario
       </button>
     </StyledForm>
+    <Print />
+    </div>
+   
   );
 };
 
