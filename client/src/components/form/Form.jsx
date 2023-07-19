@@ -46,31 +46,34 @@ const Form = () => {
 
   return (
     <div>
-       <StyledForm onSubmit={(event)=> handleFormSubmit(event , setUsers)}>
-      <label>Título:</label>
-      <input type="text" name="title" />
-      <br />
+    <StyledForm onSubmit={(event)=> handleFormSubmit(event , setUsers)}>
 
-      <label>Nombre:</label>
-      <input type="text"  name="name" />
-      <br />
+          <label>Título:</label>
+          <input type="text" name="title" />
+          <br />
 
-      <label>Edad:</label>
-      <input type="number"  name="age" />
-      <br />
+          <label>Nombre:</label>
+          <input type="text"  name="name" />
+          <br />
 
-      <label>Nombre de usuario:</label>
-      <input type="text"  name="username" />
-      <br />
+          <label>Edad:</label>
+          <input type="number"  name="age" />
+          <br />
 
-      <label>Email:</label>
-      <input type="email"  name="email" />
-      <br />
+          <label>Nombre de usuario:</label>
+          <input type="text"  name="username" />
+          <br />
 
-      <button type="submit">
-        Crear Usuario
-      </button>
+          <label>Email:</label>
+          <input type="email"  name="email" />
+          <br />
+
+          <button type="submit">
+            Crear Usuario
+          </button>
+
     </StyledForm>
+    
     {users && <Print users= {users}  setUsers = {setUsers}/>}
     
     </div>
