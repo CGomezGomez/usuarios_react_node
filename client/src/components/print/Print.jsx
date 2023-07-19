@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
-const Print = () => {
-  const [users, setUsers] = useState([]);
+const Print = ({users , setUsers}) => {
+ 
 
   useEffect(() => {
 

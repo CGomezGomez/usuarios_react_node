@@ -1,8 +1,8 @@
+import { useState } from "react";
 import Print from "../print/Print";
-
 import { StyledForm } from "./styles";
 
-const createUser = async (userData) => {
+const createUser = async (userData , setUsers) => {
   try {
     const response = await fetch("http://localhost:3000/api/users/create", {
       method: "POST",
@@ -14,13 +14,13 @@ const createUser = async (userData) => {
     });
 
     const data = await response.json();
-    console.log(data);
+    setUsers(data);
   } catch (error) {
     console.error("Error al crear usuario:", error);
   }
 };
 
-const handleFormSubmit = async (event) => {
+const handleFormSubmit = async (event , setUsers) => {
   event.preventDefault();
 
   const title = event.target.title.value;
@@ -37,14 +37,16 @@ const handleFormSubmit = async (event) => {
     email,
   };
 
-  await createUser(userData);
+  await createUser(userData , setUsers);
 };
 
 const Form = () => {
 
+  const [users, setUsers] = useState([]);
+
   return (
     <div>
-       <StyledForm onSubmit={handleFormSubmit}>
+       <StyledForm onSubmit={(event)=> handleFormSubmit(event , setUsers)}>
       <label>Título:</label>
       <input type="text" name="title" />
       <br />
@@ -69,7 +71,8 @@ const Form = () => {
         Crear Usuario
       </button>
     </StyledForm>
-    <Print />
+    {users && <Print users= {users}  setUsers = {setUsers}/>}
+    
     </div>
    
   );

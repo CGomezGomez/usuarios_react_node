@@ -6,9 +6,6 @@ const {v4} = require('uuid');
 
 
 controller.getUsers = async(req , res) => {
-    fs.readFile(usersFile , (err,data) => {
-        res.send(JSON.parse(data))
-    });
 
     try{
         const data = await  fs.readFile(usersFile)
